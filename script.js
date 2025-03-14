@@ -26,24 +26,60 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Expand Image on Click
+const galleryItems = document.querySelectorAll(".gallery-item");
+let currentExpanded = null;
+
+galleryItems.forEach(item => {
+    item.addEventListener("click", function (e) {
+        e.stopPropagation(); // Prevent click from bubbling up
+
+        if (currentExpanded === this) {
+            // If clicking the already expanded item, collapse it
+            this.classList.remove("expanded");
+            currentExpanded = null;
+        } else {
+            // Collapse any previously expanded item
+            if (currentExpanded) {
+                currentExpanded.classList.remove("expanded");
+            }
+            // Expand the clicked item
+            this.classList.add("expanded");
+            currentExpanded = this;
+        }
+    });
+});
+
+// Close expanded image when clicking outside
+document.addEventListener("click", function (e) {
+    if (currentExpanded && !currentExpanded.contains(e.target)) {
+        currentExpanded.classList.remove("expanded");
+        currentExpanded = null;
+    }
+});
+
 // Toggle Captions on Small Screens
 function handleCaptions() {
     const captions = document.querySelectorAll(".caption");
-    const galleryItems = document.querySelectorAll(".gallery-item");
 
     if (window.innerWidth <= 768) {
         galleryItems.forEach(item => {
-            item.addEventListener("click", function () {
-                const caption = this.querySelector(".caption");
-                caption.style.transform = 
-                    caption.style.transform === "translateY(0px)" ? 
-                    "translateY(100%)" : "translateY(0px)";
-            });
+            item.removeEventListener("click", toggleCaption); // Avoid duplicate listeners
+            item.addEventListener("click", toggleCaption);
         });
     } else {
         captions.forEach(caption => {
             caption.style.transform = "translateY(100%)";
         });
+    }
+}
+
+function toggleCaption(e) {
+    if (!this.classList.contains("expanded")) { // Only toggle if not expanded
+        const caption = this.querySelector(".caption");
+        caption.style.transform = 
+            caption.style.transform === "translateY(0px)" ? 
+            "translateY(100%)" : "translateY(0px)";
     }
 }
 
