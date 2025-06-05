@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-light: #1f5a96; /* Light Blue */
+    --secondary-light: #def0f7; /* Light Purple */
+    --accent-light: #ff7b00; /* Gold */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --gradient-background: linear-gradient(180deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+    --hover-effect: translateY(-5px);
+    --transition-speed: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--gradient-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: transparent;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 40px;
+   
+    background-size: cover;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgb(5, 169, 245);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: rgb(2, 175, 255);
+}
+
+/* Hero Section (Home Page) */
+.hero {
+    flex: 1; /* Allows content to push footer down */
+    position: relative;
+    height: 200vh; /* Full viewport height */
+    width: 100%;
+    padding-top: 100px;
+    padding-left: 500px;
+    padding-bottom: 500px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    background: url('bujumbura.png') no-repeat center center/cover;
+    animation: zoomIn 1s ease-out forwards;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+}
+
+.hero-content {
+    position: relative; /* Z-index to bring content above overlay */
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-light);
+    color: var(--text-dark);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: darken(var(--accent-light), 10%); /* This won't work directly in CSS, but for conceptual understanding */
+    background-color: #f7d40d; /* Manual darker shade */
+    transform: var(--hover-effect);
+}
+
+/* Zoom-in animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* General Main Styling */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+main h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    padding-top: 90px;
+    color: whitesmoke;
+    color: rgb(7, 84, 129);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Destinations Page */
+.destination-grid {
+    display:flex;
+    grid-row: auto;
+    gap: 30px;
+    margin-top: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 2px;
+    justify-content: center;
+  
+
+
+    
+}
+
+.destination-card {
+    background-color: #e8f1f1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+    min-width: 300px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.destination-card:hover {
+    transform: var(--hover-effect);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.destination-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Make image square */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.destination-card h3 {
+    padding: 15px;
+    font-size: 1.5rem;
+    margin: 15px 15px 5px;
+    color: var(--primary-light);
+}
+
+.destination-card p {
+    font-size: 0.95rem;
+    padding: 0 15px 15px;
+    color: var(--text-dark);
+}
+
+/* Testimonials Page */
+.testimonial-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;  
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.testimonial-card {
+    background-color: grey;
+    color: var(--text-light);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '“';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+    z-index: 0;
+}
+
+.testimonial-card p {
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-card h4 {
+    text-align: right;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.review-form, .booking-form {
+    background-color: #c2bbbb;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px; /* Increased from 600px to 800px */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    max-width: 800px; /* Increased from 600px to 800px */
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-light);
+    outline: none;
+    box-shadow: 0 0 5px rgba(142, 197, 252, 0.5);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Footer */
+footer {
+    background-color:#557697;
+    color: var(--text-light);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-content > div {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.footer-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%); /* Make social icons white */
+    transition: transform var(--transition-speed);
+}
+
+.social-links a img:hover {
+    transform: scale(1.1);
+}
+
+footer > p {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-content > div {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}

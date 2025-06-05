@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEscape - Testimonials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TravelEscape</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <main class="testimonials-page">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-list">
+            <div class="testimonial-card">
+                <p>"TravelEscape made planning my dream vacation effortless! Highly recommend their services."</p>
+                <h4>- Jane Doe</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"The team was incredibly helpful and responsive. Our trip to Japan was unforgettable!"</p>
+                <h4>- John Smith</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Excellent advice and personalized itinerary. We had an amazing time in Italy."</p>
+                <h4>- Emily White</h4>
+            </div>
+        </div>
+
+        <h3>Share Your Experience</h3>
+        <form class="review-form" id="reviewForm" method="POST" action="database.php">
+            <div class="form-group">
+                <label for="reviewerName">Your Name:</label>
+                <input type="text" id="reviewerName" name="reviewerName" required>
+            </div>
+            <div class="form-group">
+                <label for="reviewText">Your Review:</label>
+                <textarea id="reviewText" name="reviewText" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Review</button>
+        </form>
+        <div id="form-message"></div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h4>Contact Us</h4>
+                <p>Email: info@travelescape.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+            <div class="social-links">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter--v1.png" alt="Twitter"></a>
+            </div>
+            <p>&copy; <span id="current-year-testimonials"></span> TravelEscape. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
